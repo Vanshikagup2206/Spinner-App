@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ArrayAdapterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ListView
+        android:id="@+id/lvArrayAdapter"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvArrayAdapter"/>
+        android:layout_height="wrap_content" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/arrayFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/arrayFab"
-        android:src="@android:drawable/ic_input_add"/>
+        android:src="@android:drawable/ic_input_add" />
 </LinearLayout>

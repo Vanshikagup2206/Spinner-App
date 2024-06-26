@@ -10,22 +10,25 @@ import androidx.navigation.findNavController
 import com.vanshika.spinnerapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    var binding : ActivityMainBinding ?= null
-    private var navController : NavController?= null
+    var binding: ActivityMainBinding? = null
+    private var navController: NavController? = null
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.side_menu,menu)
+        menuInflater.inflate(R.menu.side_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.toast -> Toast.makeText(this,
-            "This is toast",
-            Toast.LENGTH_LONG).show()
+        when (item.itemId) {
+            R.id.toast -> Toast.makeText(
+                this,
+                "This is toast",
+                Toast.LENGTH_LONG
+            ).show()
         }
         return super.onOptionsItemSelected(item)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

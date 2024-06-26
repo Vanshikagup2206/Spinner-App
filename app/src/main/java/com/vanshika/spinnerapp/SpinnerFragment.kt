@@ -29,8 +29,8 @@ class SpinnerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    var binding : FragmentSpinnerBinding ?= null
-    lateinit var arrayAdapter : ArrayAdapter<String>
+    var binding: FragmentSpinnerBinding? = null
+    lateinit var arrayAdapter: ArrayAdapter<String>
     var array = arrayListOf("Jal")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,15 +53,17 @@ class SpinnerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arrayAdapter = ArrayAdapter(requireContext(),
+        arrayAdapter = ArrayAdapter(
+            requireContext(),
             android.R.layout.simple_list_item_1,
-            array)
+            array
+        )
         binding?.dynamicValueSpinner?.adapter = arrayAdapter
         binding?.fab?.setOnClickListener {
             Dialog(requireContext()).apply {
                 setContentView(R.layout.custom_dialog)
                 show()
-                val etEnterCity : EditText= this.findViewById(R.id.etEnterCity)
+                val etEnterCity: EditText = this.findViewById(R.id.etEnterCity)
                 val btnAdd: Button = this.findViewById(R.id.btnAdd)
                 btnAdd.setOnClickListener {
                     if (etEnterCity.text?.toString().isNullOrEmpty()) {
@@ -73,20 +75,25 @@ class SpinnerFragment : Fragment() {
                 }
             }
         }
-        binding?.staticValueSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                var selectedItem = binding?.staticValueSpinner?.selectedItem as String
-                Toast.makeText(requireContext(), "Selected gender ${position} $selectedItem", Toast.LENGTH_LONG).show()
-            }
+        binding?.staticValueSpinner?.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    var selectedItem = binding?.staticValueSpinner?.selectedItem as String
+                    Toast.makeText(
+                        requireContext(),
+                        "Selected gender ${position} $selectedItem",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
             }
-        }
     }
 
     companion object {

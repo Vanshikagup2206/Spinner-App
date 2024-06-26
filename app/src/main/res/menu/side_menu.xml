@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="@string/toast"
-        android:id="@+id/toast"/>
-    <item android:title="@string/snackbar"
-        android:id="@+id/snackbar"/>
+    <item
+        android:id="@+id/toast"
+        android:title="@string/toast" />
+    <item
+        android:id="@+id/snackbar"
+        android:title="@string/snackbar" />
 </menu>

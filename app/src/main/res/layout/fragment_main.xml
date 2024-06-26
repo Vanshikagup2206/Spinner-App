@@ -9,15 +9,16 @@
 
     <!-- TODO: Update blank fragment layout -->
     <Button
+        android:id="@+id/btnSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSpinner"
         android:text="@string/spinner"
-        android:textSize="@dimen/sp_20"/>
+        android:textSize="@dimen/sp_20" />
+
     <Button
+        android:id="@+id/btnListViewAdapter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/list_view_array_adapter"
-        android:textSize="@dimen/sp_20"
-        android:id="@+id/btnListViewAdapter"/>
+        android:textSize="@dimen/sp_20" />
 </LinearLayout>
