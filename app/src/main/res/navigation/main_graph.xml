@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_mainFragment_to_spinnerFragment"
             app:destination="@id/spinnerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_arrayAdapterFragment"
+            app:destination="@id/arrayAdapterFragment" />
     </fragment>
     <fragment
         android:id="@+id/spinnerFragment"
         android:name="com.vanshika.spinnerapp.SpinnerFragment"
         android:label="fragment_spinner"
         tools:layout="@layout/fragment_spinner" />
+    <fragment
+        android:id="@+id/arrayAdapterFragment"
+        android:name="com.vanshika.spinnerapp.ArrayAdapterFragment"
+        android:label="fragment_array_adapter"
+        tools:layout="@layout/fragment_array_adapter" />
 </navigation>

@@ -5,23 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SpinnerFragment">
+    tools:context=".ArrayAdapterFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <Spinner
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/staticValueSpinner"
-        android:entries="@array/gender" />
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dynamicValueSpinner"
-        android:entries="@array/gender" />
+        android:id="@+id/lvArrayAdapter"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fab"
+        android:id="@+id/arrayFab"
         android:src="@android:drawable/ic_input_add"/>
 </LinearLayout>

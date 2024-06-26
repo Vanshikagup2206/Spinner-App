@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:id="@+id/btnSpinner"
         android:text="@string/spinner"
         android:textSize="@dimen/sp_20"/>
-
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_view_array_adapter"
+        android:textSize="@dimen/sp_20"
+        android:id="@+id/btnListViewAdapter"/>
+</LinearLayout>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -29,7 +30,8 @@ class SpinnerFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     var binding : FragmentSpinnerBinding ?= null
-    var array = arrayListOf("")
+    lateinit var arrayAdapter : ArrayAdapter<String>
+    var array = arrayListOf("Jal")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +53,10 @@ class SpinnerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        arrayAdapter = ArrayAdapter(requireContext(),
+            android.R.layout.simple_list_item_1,
+            array)
+        binding?.dynamicValueSpinner?.adapter = arrayAdapter
         binding?.fab?.setOnClickListener {
             Dialog(requireContext()).apply {
                 setContentView(R.layout.custom_dialog)
@@ -61,9 +67,8 @@ class SpinnerFragment : Fragment() {
                     if (etEnterCity.text?.toString().isNullOrEmpty()) {
                         etEnterCity.error = resources.getString(R.string.enter_your_city)
                     } else {
-                        array.add(etEnterCity.toString())
+                        array.add(etEnterCity.text.toString())
                         this.dismiss()
-                        Log.e(TAG, "Entered city ${array}")
                     }
                 }
             }
@@ -77,7 +82,6 @@ class SpinnerFragment : Fragment() {
             ) {
                 var selectedItem = binding?.staticValueSpinner?.selectedItem as String
                 Toast.makeText(requireContext(), "Selected gender ${position} $selectedItem", Toast.LENGTH_LONG).show()
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

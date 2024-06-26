@@ -47,6 +47,9 @@ class MainFragment : Fragment() {
         binding?.btnSpinner?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_spinnerFragment)
         }
+        binding?.btnListViewAdapter?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_arrayAdapterFragment)
+        }
     }
 
     companion object {
