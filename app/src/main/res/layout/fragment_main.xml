@@ -21,4 +21,10 @@
         android:layout_height="wrap_content"
         android:text="@string/list_view_array_adapter"
         android:textSize="@dimen/sp_20" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BtnListViewBaseAdapter"
+        android:textSize="@dimen/sp_20"
+        android:text="@string/list_view_base_adapter"/>
 </LinearLayout>

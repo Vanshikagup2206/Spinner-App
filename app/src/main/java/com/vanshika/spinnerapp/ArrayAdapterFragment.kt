@@ -28,7 +28,7 @@ class ArrayAdapterFragment : Fragment() {
     private var param2: String? = null
     var binding: FragmentArrayAdapterBinding? = null
     lateinit var arrayAdapter: ArrayAdapter<String>
-    var array = arrayListOf("Select")
+    var array = arrayListOf("Enter")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

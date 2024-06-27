@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_arrayAdapterFragment"
             app:destination="@id/arrayAdapterFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_baseAdapterFragment"
+            app:destination="@id/baseAdapterFragment" />
     </fragment>
     <fragment
         android:id="@+id/spinnerFragment"
@@ -27,4 +30,9 @@
         android:name="com.vanshika.spinnerapp.ArrayAdapterFragment"
         android:label="fragment_array_adapter"
         tools:layout="@layout/fragment_array_adapter" />
+    <fragment
+        android:id="@+id/baseAdapterFragment"
+        android:name="com.vanshika.spinnerapp.BaseAdapterFragment"
+        android:label="fragment_base_adapter"
+        tools:layout="@layout/fragment_base_adapter" />
 </navigation>
