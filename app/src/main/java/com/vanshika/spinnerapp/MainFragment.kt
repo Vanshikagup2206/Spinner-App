@@ -52,6 +52,9 @@ class MainFragment : Fragment() {
         binding?.BtnListViewBaseAdapter?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_baseAdapterFragment)
         }
+        binding?.btnListViewWithData?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_listViewFragment)
+        }
     }
 
     companion object {

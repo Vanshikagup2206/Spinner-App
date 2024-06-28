@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_baseAdapterFragment"
             app:destination="@id/baseAdapterFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_listViewFragment"
+            app:destination="@id/listViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/spinnerFragment"
@@ -35,4 +38,9 @@
         android:name="com.vanshika.spinnerapp.BaseAdapterFragment"
         android:label="fragment_base_adapter"
         tools:layout="@layout/fragment_base_adapter" />
+    <fragment
+        android:id="@+id/listViewFragment"
+        android:name="com.vanshika.spinnerapp.ListViewFragment"
+        android:label="fragment_list_view"
+        tools:layout="@layout/fragment_list_view" />
 </navigation>

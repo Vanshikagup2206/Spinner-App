@@ -14,6 +14,12 @@
     <string name="list_view_base_adapter">List View Base Adapter</string>
     <string name="roll_no">Roll No.</string>
     <string name="name">Name</string>
+    <string name="list_view_with_data">List View With Data</string>
+    <string name="course">Course</string>
+    <string name="enter_your_roll_no">Enter Your Roll No</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_course">Enter Your Course</string>
+    <string name="submit">Submit</string>
 
     <string-array name="gender">
         <item name="male">Male</item>
