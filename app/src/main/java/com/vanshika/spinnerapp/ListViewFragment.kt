@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ListPopupWindow.MATCH_PARENT
 import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.clearFragmentResultListener
@@ -58,8 +57,12 @@ class ListViewFragment : Fragment() {
             val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
             val dialog = Dialog(requireContext()).apply {
                 setContentView(dialogBinding.root)
+                getWindow()?.setLayout(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+
                 show()
-                getWindow()?.setLayout(MATCH_PARENT, MATCH_PARENT)
             }
             dialogBinding.btnSubmit.setOnClickListener {
                 if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
@@ -83,70 +86,70 @@ class ListViewFragment : Fragment() {
             }
         }
         binding?.lvBaseAdapterWithData?.setOnItemClickListener { adapterView, view, i, l ->
-            var alertDialog = AlertDialog.Builder(requireContext())
-            alertDialog.setTitle("You want to update the list?")
-            alertDialog.setPositiveButton("Update") { _, _ ->
-                val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
-                val dialog = Dialog(requireContext()).apply {
-                    setContentView(dialogBinding.root)
-                    show()
-                    getWindow()?.setLayout(MATCH_PARENT, MATCH_PARENT)
-                }
-                dialogBinding.btnSubmit.setOnClickListener {
-                    if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
-                        dialogBinding.etEnterRollNo.error =
-                            resources.getString(R.string.enter_your_roll_no)
-                    } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
-                        dialogBinding.etEnterName.error =
-                            resources.getString(R.string.enter_your_name)
-                    } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
-                        dialogBinding.etEnterCourse.error =
-                            resources.getString(R.string.enter_your_course)
-                    } else {
-                        studentArray.replaceAll {
-                            DataAdapter(
-                                dialogBinding.etEnterRollNo.text.toString().toInt(),
-                                dialogBinding.etEnterName.text.toString(),
-                                dialogBinding.etEnterCourse.text.toString()
-                            )
-                        }
-                        dialog.dismiss()
-                    }
+
+            val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
+            val dialog = Dialog(requireContext()).apply {
+                setContentView(dialogBinding.root)
+                getWindow()?.setLayout(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                show()
+            }
+            dialogBinding.btnSubmit.setOnClickListener {
+                if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterRollNo.error =
+                        resources.getString(R.string.enter_your_roll_no)
+                } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterName.error =
+                        resources.getString(R.string.enter_your_name)
+                } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterCourse.error =
+                        resources.getString(R.string.enter_your_course)
+                } else {
+                    studentArray.set(
+                        i,
+                        DataAdapter(
+                            dialogBinding.etEnterRollNo.text.toString().toInt(),
+                            dialogBinding.etEnterName.text.toString(),
+                            dialogBinding.etEnterCourse.text.toString()
+                        )
+                    )
+
+                    dialog.dismiss()
                 }
             }
-            alertDialog.show()
         }
-//        binding?.lvBaseAdapterWithData?.setOnItemLongClickListener { adapterView, view, i, l ->
-//            var alertDialog = AlertDialog.Builder(requireContext())
-//            alertDialog.setTitle("You want to delete the list?")
-//            alertDialog.setPositiveButton("Delete") { _, _ ->
-//                val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
-//                val dialog = Dialog(requireContext()).apply {
-//                    setContentView(dialogBinding.root)
-//                    show()
-//                    getWindow()?.setLayout(MATCH_PARENT, MATCH_PARENT)
-//                }
-//                dialogBinding.btnSubmit.setOnClickListener {
-//                    if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
-//                        dialogBinding.etEnterRollNo.error =
-//                            resources.getString(R.string.enter_your_roll_no)
-//                    } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
-//                        dialogBinding.etEnterName.error =
-//                            resources.getString(R.string.enter_your_name)
-//                    } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
-//                        dialogBinding.etEnterCourse.error =
-//                            resources.getString(R.string.enter_your_course)
-//                    } else {
-//                        studentArray.remove(
-//                            DataAdapter(
-//                                dialogBinding.etEnterRollNo.text.toString().toInt()
-//                            )
-//                        )
-//                    }
-//                    dialog.dismiss()
-//                }
-//            }
-//        }
+        binding?.lvBaseAdapterWithData?.setOnItemLongClickListener { adapterView, view, i, l ->
+
+            val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
+            val dialog = Dialog(requireContext()).apply {
+                setContentView(dialogBinding.root)
+                show()
+                getWindow()?.setLayout(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+            dialogBinding.btnSubmit.setOnClickListener {
+                if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterRollNo.error = resources.getString(R.string.enter_your_roll_no)
+                } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterName.error = resources.getString(R.string.enter_your_name)
+                } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
+                    dialogBinding.etEnterCourse.error = resources.getString(R.string.enter_your_course)
+                } else {
+                    studentArray.remove(
+                        DataAdapter(
+                            dialogBinding.etEnterRollNo.text.toString().toInt(),
+                            dialogBinding.etEnterName.text.toString(),
+                            dialogBinding.etEnterCourse.text.toString()
+                        )
+                    )
+                }
+            }
+            return@setOnItemLongClickListener true
+        }
     }
 
     companion object {
