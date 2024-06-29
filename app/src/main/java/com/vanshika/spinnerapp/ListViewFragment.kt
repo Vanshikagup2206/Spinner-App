@@ -86,7 +86,6 @@ class ListViewFragment : Fragment() {
             }
         }
         binding?.lvBaseAdapterWithData?.setOnItemClickListener { adapterView, view, i, l ->
-
             val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
             val dialog = Dialog(requireContext()).apply {
                 setContentView(dialogBinding.root)
@@ -107,47 +106,26 @@ class ListViewFragment : Fragment() {
                     dialogBinding.etEnterCourse.error =
                         resources.getString(R.string.enter_your_course)
                 } else {
-                    studentArray.set(
-                        i,
-                        DataAdapter(
+                    studentArray.set(i, DataAdapter(
                             dialogBinding.etEnterRollNo.text.toString().toInt(),
                             dialogBinding.etEnterName.text.toString(),
                             dialogBinding.etEnterCourse.text.toString()
                         )
                     )
-
                     dialog.dismiss()
                 }
             }
         }
         binding?.lvBaseAdapterWithData?.setOnItemLongClickListener { adapterView, view, i, l ->
-
-            val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
-            val dialog = Dialog(requireContext()).apply {
-                setContentView(dialogBinding.root)
-                show()
-                getWindow()?.setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
+            var alertDialog = AlertDialog.Builder(requireContext())
+            alertDialog.setTitle("You want to delete this list?")
+            alertDialog.setPositiveButton("Yes"){_,_ ->
+                studentArray.removeAt(i)
+                adapter.notifyDataSetChanged()
             }
-            dialogBinding.btnSubmit.setOnClickListener {
-                if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterRollNo.error = resources.getString(R.string.enter_your_roll_no)
-                } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterName.error = resources.getString(R.string.enter_your_name)
-                } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterCourse.error = resources.getString(R.string.enter_your_course)
-                } else {
-                    studentArray.remove(
-                        DataAdapter(
-                            dialogBinding.etEnterRollNo.text.toString().toInt(),
-                            dialogBinding.etEnterName.text.toString(),
-                            dialogBinding.etEnterCourse.text.toString()
-                        )
-                    )
-                }
+            alertDialog.setNegativeButton("No"){_,_ ->
             }
+            alertDialog.show()
             return@setOnItemLongClickListener true
         }
     }
