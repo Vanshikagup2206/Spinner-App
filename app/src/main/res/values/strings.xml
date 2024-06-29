@@ -20,6 +20,7 @@
     <string name="enter_your_name">Enter Your Name</string>
     <string name="enter_your_course">Enter Your Course</string>
     <string name="submit">Submit</string>
+    <string name="you_want_to_delete_this_list">You want to delete this list?</string>
 
     <string-array name="gender">
         <item name="male">Male</item>

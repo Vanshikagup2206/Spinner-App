@@ -57,25 +57,18 @@ class ListViewFragment : Fragment() {
             val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
             val dialog = Dialog(requireContext()).apply {
                 setContentView(dialogBinding.root)
-                getWindow()?.setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-
+                getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 show()
             }
             dialogBinding.btnSubmit.setOnClickListener {
                 if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterRollNo.error =
-                        resources.getString(R.string.enter_your_roll_no)
+                    dialogBinding.etEnterRollNo.error = resources.getString(R.string.enter_your_roll_no)
                 } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
                     dialogBinding.etEnterName.error = resources.getString(R.string.enter_your_name)
                 } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterCourse.error =
-                        resources.getString(R.string.enter_your_course)
+                    dialogBinding.etEnterCourse.error = resources.getString(R.string.enter_your_course)
                 } else {
-                    studentArray.add(
-                        DataAdapter(
+                    studentArray.add(DataAdapter(
                             dialogBinding.etEnterRollNo.text.toString().toInt(),
                             dialogBinding.etEnterName.text.toString(),
                             dialogBinding.etEnterCourse.text.toString()
@@ -89,22 +82,16 @@ class ListViewFragment : Fragment() {
             val dialogBinding = CustomdialogfordatainputBinding.inflate(layoutInflater)
             val dialog = Dialog(requireContext()).apply {
                 setContentView(dialogBinding.root)
-                getWindow()?.setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
+                getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 show()
             }
             dialogBinding.btnSubmit.setOnClickListener {
                 if (dialogBinding.etEnterRollNo.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterRollNo.error =
-                        resources.getString(R.string.enter_your_roll_no)
+                    dialogBinding.etEnterRollNo.error = resources.getString(R.string.enter_your_roll_no)
                 } else if (dialogBinding.etEnterName.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterName.error =
-                        resources.getString(R.string.enter_your_name)
+                    dialogBinding.etEnterName.error = resources.getString(R.string.enter_your_name)
                 } else if (dialogBinding.etEnterCourse.text.toString().trim().isEmpty()) {
-                    dialogBinding.etEnterCourse.error =
-                        resources.getString(R.string.enter_your_course)
+                    dialogBinding.etEnterCourse.error = resources.getString(R.string.enter_your_course)
                 } else {
                     studentArray.set(i, DataAdapter(
                             dialogBinding.etEnterRollNo.text.toString().toInt(),
@@ -118,7 +105,7 @@ class ListViewFragment : Fragment() {
         }
         binding?.lvBaseAdapterWithData?.setOnItemLongClickListener { adapterView, view, i, l ->
             var alertDialog = AlertDialog.Builder(requireContext())
-            alertDialog.setTitle("You want to delete this list?")
+            alertDialog.setTitle(resources.getString(R.string.you_want_to_delete_this_list))
             alertDialog.setPositiveButton("Yes"){_,_ ->
                 studentArray.removeAt(i)
                 adapter.notifyDataSetChanged()
