@@ -106,11 +106,11 @@ class ListViewFragment : Fragment() {
         binding?.lvBaseAdapterWithData?.setOnItemLongClickListener { adapterView, view, i, l ->
             var alertDialog = AlertDialog.Builder(requireContext())
             alertDialog.setTitle(resources.getString(R.string.you_want_to_delete_this_list))
-            alertDialog.setPositiveButton("Yes"){_,_ ->
+            alertDialog.setPositiveButton(resources.getString(R.string.yes)){_,_ ->
                 studentArray.removeAt(i)
                 adapter.notifyDataSetChanged()
             }
-            alertDialog.setNegativeButton("No"){_,_ ->
+            alertDialog.setNegativeButton(resources.getString(R.string.no)){_,_ ->
             }
             alertDialog.show()
             return@setOnItemLongClickListener true
